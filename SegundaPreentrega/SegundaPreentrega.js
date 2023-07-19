@@ -18,6 +18,7 @@ function RegistrarUsuario(){
     let contraseña= prompt("Ingrese una contraseña: ");
     if (listaUsuarios.findIndex(({ NombreUsuario }) => NombreUsuario === nombreUsuario) != -1) {
         alert("Usuario ya existe")
+        menu()
     }
     else{
         let usuario = new NuevoUsuario(nombreUsuario,contraseña)
@@ -38,6 +39,27 @@ function EliminarUsuario(NombreUsuario){
 }
 
 
+const articulos = [{nombre:"Moto",precio:500},{nombre:"Auto",precio:1000},{nombre:"Bicicleta",precio:200}]
+
+function ConsultarPrecios()
+{
+    let lista = ""
+
+    articulos.forEach(articulo => lista +=  `Articulo: ${articulo.nombre} Precio: ${articulo.precio} \n`)
+    alert(lista)
+    menu()
+}
+
+
+function Comprar(){
+    let lista = ""
+
+    articulos.forEach((articulo,index) => lista +=  `${index+1}) Articulo: ${articulo.nombre} Precio: ${articulo.precio} \n`)
+    let opt = prompt(lista + "Que articulo Desea Comprar?")
+
+    alert(`Gracias por la compra de: ${articulos[opt].nombre}`)
+    menu()
+}
 
 function menu(){
     alert("Bienvenido a la pagina de Venta de Insumos");
@@ -54,10 +76,10 @@ switch (opcion){
         EliminarUsuario(nombreUsuarioEliminar);
         break;
     case 3:
-        //ConsultarPrecios();
+        ConsultarPrecios();
         break;
     case 4:
-        //Comprar();
+        Comprar();
         break;
     case 5:
         //salir();
