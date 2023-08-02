@@ -1,12 +1,14 @@
 function agregarAlCarrito(id) {
     let articulo = articulos.find((articulo) => articulo.id == id);
-    let carrito = []
+    const carrito = JSON.parse(localStorage.getItem('Carrito')) || [];
     //carrito.push(JSON.parse(localStorage.getItem("Carrito")))
+
+    
     carrito.push(articulo)
-    console.log(carrito)
+
 
     console.log(articulo);
-    localStorage.setItem("Carrito", JSON.stringify(articulo));
+    localStorage.setItem("Carrito", JSON.stringify(carrito));
     let respuesta = document.getElementById("respuesta");
 
 
@@ -26,12 +28,18 @@ function agregarAlCarrito(id) {
   }
   
   function obtenerProducto() {
-
-    let articulo = JSON.parse(localStorage.getItem("Carrito"));
+    let lista = []
+    const carritoActual = JSON.parse(localStorage.getItem('Carrito')) || []
+    let textSwal = "Estos son los articulos que estan en tu carrito: <br>"
+    carritoActual.forEach(item => {
+        lista.push(`<b>Nombre</b>: ${item.nombre} <b>Precio</b>: ${item.precio}<br>`)
+        //console.log(`ID: ${item.id}, Nombre: ${item.nombre}, Precio: ${item.precio}, Cantidad: ${item.cantidad}`);
+      });
+      console.log(lista)
     Swal.fire({
         title: 'Lista del carrito!',
-        text: 'Estos articulos estan en tu carrito',
-        imageUrl: articulo.imagen,
+        html: textSwal + lista,
+        imageUrl: articulos.imagen,
         imageWidth: 400,
         imageHeight: 200,
         imageAlt: 'Custom image',
