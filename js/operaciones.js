@@ -31,14 +31,16 @@ function agregarAlCarrito(id) {
     let lista = []
     const carritoActual = JSON.parse(localStorage.getItem('Carrito')) || []
     let textSwal = "Estos son los articulos que estan en tu carrito: <br>"
+    let total = 0
     carritoActual.forEach(item => {
-        lista.push(`<b>Nombre</b>: ${item.nombre} <b>Precio</b>: ${item.precio}<br>`)
+        lista.push(`<b>Articulo</b>: ${item.nombre} <b>Precio</b>: ${item.precio}<br>`)
+        total += item.precio
         //console.log(`ID: ${item.id}, Nombre: ${item.nombre}, Precio: ${item.precio}, Cantidad: ${item.cantidad}`);
       });
       console.log(lista)
     Swal.fire({
         title: 'Lista del carrito!',
-        html: textSwal + lista,
+        html: textSwal + lista +"<hr><br> <b>Total:</b> "+ total,
         imageUrl: articulos.imagen,
         imageWidth: 400,
         imageHeight: 200,
