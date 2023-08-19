@@ -61,6 +61,10 @@ function Comprar(){
     menu()
 }
 
+function Salir(){
+
+}
+
 function menu(){
     alert("Bienvenido a la pagina de Venta de Insumos");
     let opcion= parseInt(prompt("Seleccione una opción: \n 1) Registrarse \n 2) Eliminar Cuenta \n 3) Consultar Precios \n 4) Comprar \n 5) Salir"));
@@ -82,7 +86,7 @@ switch (opcion){
         Comprar();
         break;
     case 5:
-        //salir();
+        Salir();
         break;
     default:
         alert("Opcion no valida");
