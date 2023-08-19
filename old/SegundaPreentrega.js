@@ -61,11 +61,15 @@ function Comprar(){
     menu()
 }
 
+<<<<<<< HEAD:SegundaPreentrega/SegundaPreentrega.js
 function Salir(){
 
 }
 
 function menu(){
+=======
+function menu(entrar){
+>>>>>>> d55b07691e59dcc67eea6d2a2124f2f17714f285:old/SegundaPreentrega.js
     alert("Bienvenido a la pagina de Venta de Insumos");
     let opcion= parseInt(prompt("Seleccione una opción: \n 1) Registrarse \n 2) Eliminar Cuenta \n 3) Consultar Precios \n 4) Comprar \n 5) Salir"));
     return opcion;
