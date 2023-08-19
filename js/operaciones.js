@@ -1,3 +1,4 @@
+
 function agregarAlCarrito(id) {
     let articulo = articulos.find((articulo) => articulo.id == id);
     const carrito = JSON.parse(localStorage.getItem('Carrito')) || [];
@@ -24,7 +25,7 @@ function agregarAlCarrito(id) {
     });
       //mostrarMensaje();
 
-    respuesta.innerHTML = `<button class="btn btn-dark" onClick="obtenerProducto()">Ver Carrito</button></p>`;
+    //respuesta.innerHTML = `<button class="btn btn-dark" onClick="obtenerProducto()">Ver Carrito</button></p>`;
   }
   
   function obtenerProducto() {
@@ -37,14 +38,14 @@ function agregarAlCarrito(id) {
           const div = document.createElement("div");
           div.classList.add("carrito-producto");
           div.innerHTML = `
-              <img class="carrito-producto-imagen" src="${item.imagen}" alt="${item.titulo}">
+              <img class="carrito-producto-imagen" src="${item.imagen}" alt="${item.nombre}">
               <div class="carrito-producto-titulo">
                   <small>Título</small>
-                  <h3>${item.titulo}</h3>
+                  <h3>${item.nombre}</h3>
               </div>
               <div class="carrito-producto-cantidad">
                   <small>Cantidad</small>
-                  <p>${item.cantidad}</p>
+                  <p>1</p>
               </div>
               <div class="carrito-producto-precio">
                   <small>Precio</small>
@@ -52,7 +53,7 @@ function agregarAlCarrito(id) {
               </div>
               <div class="carrito-producto-subtotal">
                   <small>Subtotal</small>
-                  <p>$${item.precio * item.cantidad}</p>
+                  <p>$${item.precio}</p>
               </div>
               <button class="carrito-producto-eliminar" id="${item.id}"><i class="bi bi-trash-fill"></i></button>`
       })
