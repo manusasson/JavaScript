@@ -1,11 +1,14 @@
 
 function agregarAlCarrito(id) {
     let articulo = articulos.find((articulo) => articulo.id == id);
-    const carrito = JSON.parse(localStorage.getItem('Carrito')) || [];
-    //carrito.push(JSON.parse(localStorage.getItem("Carrito")))
+    let carrito = JSON.parse(localStorage.getItem('Carrito')) || [];
 
+    // Asegurarse de que carrito sea siempre un array
+    if (!Array.isArray(carrito)) {
+        carrito = [];
+    }
     
-    carrito.push(articulo)
+    carrito.push(articulo);
 
 
     console.log(articulo);
